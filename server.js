@@ -47,6 +47,8 @@ const userSchema = new mongoose.Schema({
 // Create session API
 app.post("/api/create-session", async (req, res) => {
     const { id } = req.body;
+    
+    console.log("Creating session for ID:", id);
 
     try {
         const existingUser = await User.findOne({ clientId: id });
