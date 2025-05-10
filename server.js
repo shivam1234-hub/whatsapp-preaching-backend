@@ -86,7 +86,7 @@ const createWhatsappSession = async (id, socket) => {
     client.on('ready', async () => {
         console.log('READY--1');
     });
-    client.on('remote_session_saved', () => {
+    client.on('remote_session_saved', async () => {
         console.log('remote-session saved');
         activeClients.set(id, { client, ready: true });
         await User.findOneAndUpdate(
