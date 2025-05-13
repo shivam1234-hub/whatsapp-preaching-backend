@@ -21,8 +21,15 @@ const store = new MongoStore({
 });
 
 
-// Set up middlewares
-app.use(cors());
+const corsOptions = {
+    origin: '*', // Or use specific origin: ["https://your-frontend-domain.com"]
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use(fileUpload());
 
