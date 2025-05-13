@@ -20,11 +20,6 @@ const store = new MongoStore({
     mongoose: mongoose,
 });
 
-// Ensure the uploads directory exists
-const uploadDir = "./uploads";
-if (!fs.existsSync(uploadDir)) {
-    fs.mkdirSync(uploadDir, { recursive: true });
-}
 
 // Set up middlewares
 app.use(cors());
