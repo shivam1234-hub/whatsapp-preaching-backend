@@ -45,6 +45,11 @@ const userSchema = new mongoose.Schema({
     status: { type: String, enum: ["active", "inactive"], default: "active" },
 });
 
+const sessionPath = '/tmp/sessions';
+if (!fs.existsSync(sessionPath)) {
+    fs.mkdirSync(sessionPath, { recursive: true });
+}
+
     
 // Create session API
 app.post("/api/create-session", async (req, res) => {
@@ -67,7 +72,7 @@ app.post("/api/create-session", async (req, res) => {
                 clientId: id,
                 store: store,
                 backupSyncIntervalMs: 300000,
-                dataPath: './sessions'
+                dataPath: '/tmp/sessions'
             }),
         });
 
@@ -149,7 +154,7 @@ const getClientForId = async (id) => {
                     clientId: id,
                     store: store,
                     backupSyncIntervalMs: 300000,
-                    dataPath: './sessions'
+                    dataPath: '/tmp/sessions'
                 }),
             });
             await client.initialize();
