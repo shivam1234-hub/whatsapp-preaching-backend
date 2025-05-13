@@ -3,3 +3,5 @@
 node_modules
 .wwebjs_auth
 .wwebjs_cache
+.pre-commit-config.yaml
+trufflehog/

@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0dbabab5-f339-4d0d-a8a6-cffca5a2e665" name="Changes" comment="" />
+    <list default="true" id="0dbabab5-f339-4d0d-a8a6-cffca5a2e665" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="true" />
@@ -25,8 +30,10 @@
   "keyToString": {
     "Node.js.server.js.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "git-widget-placeholder": "main",
     "go.import.settings.migrated": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/test/Downloads/self/whatsapp-bulk-preaching-backend",
@@ -48,7 +55,7 @@
       <module name="whatsapp-bulk-preaching-backend" />
       <working_directory value="$PROJECT_DIR$" />
       <go_parameters value="-i" />
-      <kind />
+      <kind value="FILE" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <method v="2" />
@@ -57,7 +64,7 @@
       <module name="whatsapp-bulk-preaching-backend" />
       <working_directory value="$PROJECT_DIR$" />
       <go_parameters value="-i" />
-      <kind />
+      <kind value="DIRECTORY" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
@@ -93,6 +100,7 @@
       <updated>1746539991008</updated>
       <workItem from="1746539992065" duration="444000" />
       <workItem from="1746540443157" duration="11515000" />
+      <workItem from="1747115690435" duration="2223000" />
     </task>
     <servers />
   </component>
@@ -108,20 +116,17 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server.js</url>
-          <line>49</line>
-          <properties lambdaOrdinal="-1" />
+          <line>51</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server.js</url>
-          <line>45</line>
-          <properties lambdaOrdinal="-1" />
+          <line>47</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server.js</url>
-          <line>71</line>
-          <properties lambdaOrdinal="-1" />
+          <line>74</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
