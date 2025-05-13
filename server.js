@@ -9,6 +9,7 @@ const User = require('./User');
 const cors = require("cors");
 const fs = require("fs");
 const path = require("path");
+const puppeteer = require("puppeteer");
 
 // Create Express app and server
 const app = express();
@@ -67,6 +68,8 @@ app.post("/api/create-session", async (req, res) => {
         const client = new Client({
             puppeteer: {
                 headless: true,
+                executablePath: puppeteer.executablePath(), // ✅ use bundled Chromium
+                args: ['--no-sandbox', '--disable-setuid-sandbox'], // ✅ needed for Vercel
             },
             authStrategy: new RemoteAuth({
                 clientId: id,
@@ -149,6 +152,8 @@ const getClientForId = async (id) => {
             client = new Client({
                 puppeteer: {
                     headless: true,
+                    executablePath: puppeteer.executablePath(), // ✅ use bundled Chromium
+                    args: ['--no-sandbox', '--disable-setuid-sandbox'], // ✅ needed for Vercel
                 },
                 authStrategy: new RemoteAuth({
                     clientId: id,
