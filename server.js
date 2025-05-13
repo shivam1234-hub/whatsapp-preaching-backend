@@ -60,6 +60,7 @@ app.post("/api/create-session", async (req, res) => {
                 clientId: id,
                 store: store,
                 backupSyncIntervalMs: 300000,
+                dataPath: './sessions'
             }),
         });
 
@@ -141,6 +142,7 @@ const getClientForId = async (id) => {
                     clientId: id,
                     store: store,
                     backupSyncIntervalMs: 300000,
+                    dataPath: './sessions'
                 }),
             });
             await client.initialize();
