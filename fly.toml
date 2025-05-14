@@ -1,0 +1,41 @@
+app = "your-app-name"  # Replace with your app name
+primary_region = "bom"  # Mumbai region, change as needed
+
+[build]
+dockerfile = "Dockerfile"
+
+[env]
+PORT = "8080"
+NODE_ENV = "production"
+PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = "true"
+PUPPETEER_EXECUTABLE_PATH = "/usr/bin/google-chrome-stable"
+
+[http_service]
+internal_port = 8080
+force_https = true
+auto_stop_machines = true
+auto_start_machines = true
+min_machines_running = 1
+processes = ["app"]
+
+[[http_service.ports]]
+port = 80
+handlers = ["http"]
+force_https = true
+
+[[http_service.ports]]
+port = 443
+handlers = ["tls", "http"]
+
+[[vm]]
+cpu_kind = "shared"
+cpus = 1
+memory_mb = 2048  # 2GB RAM, increase if needed
+
+[mounts]
+source = "whatsapp_sessions"
+destination = "/tmp/sessions"
+
+[metrics]
+port = 8081
+path = "/metrics"
