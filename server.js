@@ -68,7 +68,7 @@ app.post("/api/create-session", async (req, res) => {
         const client = new Client({
             puppeteer: {
                 headless: true,
-                executablePath: puppeteer.executablePath(), // ✅ use bundled Chromium
+                executablePath: '/usr/bin/google-chrome', // ✅ use bundled Chromium
                 args: [  '--no-sandbox',
                     '--disable-setuid-sandbox',
                     '--disable-dev-shm-usage',
@@ -158,7 +158,7 @@ const getClientForId = async (id) => {
             client = new Client({
                 puppeteer: {
                     headless: true,
-                    executablePath: puppeteer.executablePath(), // ✅ use bundled Chromium
+                    executablePath: '/usr/bin/google-chrome', // ✅ use bundled Chromium
                     args: [  '--no-sandbox',
                         '--disable-setuid-sandbox',
                         '--disable-dev-shm-usage',
