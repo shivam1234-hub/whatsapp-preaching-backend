@@ -67,15 +67,7 @@ app.post("/api/create-session", async (req, res) => {
 
         const client = new Client({
             puppeteer: {
-                headless: true,
-                executablePath: '/usr/bin/google-chrome', // ✅ use bundled Chromium
-                args: [  '--no-sandbox',
-                    '--disable-setuid-sandbox',
-                    '--disable-dev-shm-usage',
-                    '--disable-accelerated-2d-canvas',
-                    '--no-first-run',
-                    '--no-zygote',
-                    '--disable-gpu'], // ✅ needed for Vercel
+                executablePath: process.env.NODE_ENV === 'production' ? process.env.PUPPETEER_EXECUTABLE_PATH : puppeteer.executablePath(),
             },
             authStrategy: new RemoteAuth({
                 clientId: id,
@@ -157,15 +149,7 @@ const getClientForId = async (id) => {
         if (existingUser) {
             client = new Client({
                 puppeteer: {
-                    headless: true,
-                    executablePath: '/usr/bin/google-chrome', // ✅ use bundled Chromium
-                    args: [  '--no-sandbox',
-                        '--disable-setuid-sandbox',
-                        '--disable-dev-shm-usage',
-                        '--disable-accelerated-2d-canvas',
-                        '--no-first-run',
-                        '--no-zygote',
-                        '--disable-gpu'], // ✅ needed for Vercel
+                    executablePath: process.env.NODE_ENV === 'production' ? process.env.PUPPETEER_EXECUTABLE_PATH : puppeteer.executablePath(),
                 },
                 authStrategy: new RemoteAuth({
                     clientId: id,
@@ -182,7 +166,7 @@ const getClientForId = async (id) => {
     return client;
 };
 
-app.listen(4001, () => {
+app.listen(5000, () => {
     console.log("API server started on port 4001");
 });
 
