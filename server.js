@@ -21,6 +21,21 @@ const store = new MongoStore({
     mongoose: mongoose,
 });
 
+const args =  [
+    '--no-sandbox',
+    '--disable-setuid-sandbox',
+    '--disable-dev-shm-usage',
+    '--disable-accelerated-2d-canvas',
+    '--no-first-run',
+    '--no-zygote',
+    '--disable-gpu',
+    '--disable-extensions',
+    '--disable-software-rasterizer',
+    '--disable-features=site-per-process',
+    '--disable-web-security',
+    '--disable-features=IsolateOrigins,site-per-process'
+]
+
 
 const corsOptions = {
     origin: '*', // Or use specific origin: ["https://your-frontend-domain.com"]
@@ -68,7 +83,7 @@ app.post("/api/create-session", async (req, res) => {
         const client = new Client({
             puppeteer: {
                 executablePath: process.env.NODE_ENV === 'production' ? process.env.PUPPETEER_EXECUTABLE_PATH : puppeteer.executablePath(),
-                args: ['--no-sandbox'],
+                args: args
             },
             authStrategy: new RemoteAuth({
                 clientId: id,
@@ -137,6 +152,8 @@ app.post("/api/send-message", async (req, res) => {
     }
 });
 
+
+
 // Helper to get client by id (storing in-memory or DB)
 const activeClients = new Map();
 
@@ -151,7 +168,7 @@ const getClientForId = async (id) => {
             client = new Client({
                 puppeteer: {
                     executablePath: process.env.NODE_ENV === 'production' ? process.env.PUPPETEER_EXECUTABLE_PATH : puppeteer.executablePath(),
-                    args: ['--no-sandbox'],
+                    args: args,
                 },
                 authStrategy: new RemoteAuth({
                     clientId: id,
