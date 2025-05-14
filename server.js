@@ -69,7 +69,13 @@ app.post("/api/create-session", async (req, res) => {
             puppeteer: {
                 headless: true,
                 executablePath: puppeteer.executablePath(), // ✅ use bundled Chromium
-                args: ['--no-sandbox', '--disable-setuid-sandbox'], // ✅ needed for Vercel
+                args: [  '--no-sandbox',
+                    '--disable-setuid-sandbox',
+                    '--disable-dev-shm-usage',
+                    '--disable-accelerated-2d-canvas',
+                    '--no-first-run',
+                    '--no-zygote',
+                    '--disable-gpu'], // ✅ needed for Vercel
             },
             authStrategy: new RemoteAuth({
                 clientId: id,
@@ -153,7 +159,13 @@ const getClientForId = async (id) => {
                 puppeteer: {
                     headless: true,
                     executablePath: puppeteer.executablePath(), // ✅ use bundled Chromium
-                    args: ['--no-sandbox', '--disable-setuid-sandbox'], // ✅ needed for Vercel
+                    args: [  '--no-sandbox',
+                        '--disable-setuid-sandbox',
+                        '--disable-dev-shm-usage',
+                        '--disable-accelerated-2d-canvas',
+                        '--no-first-run',
+                        '--no-zygote',
+                        '--disable-gpu'], // ✅ needed for Vercel
                 },
                 authStrategy: new RemoteAuth({
                     clientId: id,
