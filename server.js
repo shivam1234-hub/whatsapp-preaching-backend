@@ -68,6 +68,7 @@ app.post("/api/create-session", async (req, res) => {
         const client = new Client({
             puppeteer: {
                 executablePath: process.env.NODE_ENV === 'production' ? process.env.PUPPETEER_EXECUTABLE_PATH : puppeteer.executablePath(),
+                args: ['--no-sandbox'],
             },
             authStrategy: new RemoteAuth({
                 clientId: id,
@@ -150,6 +151,7 @@ const getClientForId = async (id) => {
             client = new Client({
                 puppeteer: {
                     executablePath: process.env.NODE_ENV === 'production' ? process.env.PUPPETEER_EXECUTABLE_PATH : puppeteer.executablePath(),
+                    args: ['--no-sandbox'],
                 },
                 authStrategy: new RemoteAuth({
                     clientId: id,
